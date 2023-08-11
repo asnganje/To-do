@@ -13,14 +13,15 @@ function App() {
       completed: false,
       id: nanoid()
     }
-
+    const updatedTodos = [...list, newToDo]; 
+    setList(updatedTodos)
   }
 
   return (
     <div>
-      <h4>This is my to do List</h4>
-      <Form />
-      <List />
+      <h4>React to do App </h4>
+      <Form addedToDo = {addedToDo} />
+      <List todos = {list}/>
     </div>
   );
 }
