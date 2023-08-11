@@ -4,8 +4,23 @@ import List from './List'
 import React, { useState } from 'react'
 import { nanoid } from 'nanoid';
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem('list')
+  if(list) {
+    list = JSON.parse(localStorage.getItem('list'))
+  } else {
+    list = []
+  }
+  return list
+}
+
+
+const setLocalStorage = (tasks) => {
+  localStorage.setItem('list', JSON.stringify(tasks))
+}
+
 function App() {
-  const [list, setList] = useState([])
+  const [list, setList] = useState(getLocalStorage())
 
   const addedToDo = (todoName) => {
     const newToDo = {
@@ -15,6 +30,7 @@ function App() {
     }
     const updatedTodos = [...list, newToDo]; 
     setList(updatedTodos)
+    setLocalStorage(updatedTodos)
   }
 
   const removeToDo = (todoId) => {
@@ -23,6 +39,7 @@ function App() {
     })
 
     setList(newTodos)
+    setLocalStorage(newTodos)
   }
 
   return (
