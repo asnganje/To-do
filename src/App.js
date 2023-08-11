@@ -27,7 +27,7 @@ function App() {
 
   return (
     <section className='section-container'>
-      <h4>React to do App </h4>
+      <h4>My To Do List</h4>
       <Form addedToDo = {addedToDo} />
       <List todos = {list} removeToDo = {removeToDo}/>
     </section>
