@@ -12,13 +12,14 @@ const Form = ({addedToDo}) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className="form-content">
                     <input 
                     type="text"
+                    className="form-input"
                     value={todo}
                     onChange={(e)=>setToDo(e.target.value)}
                     />
-                    <button type="submit">Add New</button>
+                    <button type="submit" className="btn">Add New</button>
                 </div>
             </form>
         </div>

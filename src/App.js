@@ -17,12 +17,20 @@ function App() {
     setList(updatedTodos)
   }
 
+  const removeToDo = (todoId) => {
+    const newTodos = list.filter((todo)=> {
+      return todo.id !== todoId
+    })
+
+    setList(newTodos)
+  }
+
   return (
-    <div>
+    <section className='section-container'>
       <h4>React to do App </h4>
       <Form addedToDo = {addedToDo} />
-      <List todos = {list}/>
-    </div>
+      <List todos = {list} removeToDo = {removeToDo}/>
+    </section>
   );
 }
 
